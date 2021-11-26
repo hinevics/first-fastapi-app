@@ -4,8 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-dir_path = os.path.dirname(os.path.realpath(__file__))
+dir_path = r'D:\Dev\Coding\first-fastapi-app\first-fastapi-app\db'
 
-
-DATABASE_URL = 'sqlite:///{dir_path}{name}'.format(name=os.getenv('DATABASE_URL'),
-                                                   dir_path=dir_path)
+DATABASE_URL = r'sqlite:///{dir_path}\{name}'.format(name=os.getenv('DATABASE_URL'),
+                                                    dir_path=dir_path)
