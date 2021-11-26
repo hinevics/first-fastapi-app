@@ -1,4 +1,7 @@
-from fastapi import APIRouter, Body
+from fastapi import APIRouter, Body, Depends
+
+from app.forms import UserLoginForm
+from app.models import connect_db
 
 
 router = APIRouter()
@@ -10,5 +13,6 @@ def index():
 
 
 @router.post('/login', name='user:login')
-def login(user_form=Body(..., embed=True)):
+def login(user_form: UserLoginForm = Body(..., embed=True), database=Depends(connect_db)):
+    # user_form.email and user_form.password
     return {'status': 'OK'}
