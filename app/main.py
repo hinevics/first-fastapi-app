@@ -1,8 +1,11 @@
 from fastapi import FastAPI
+from app.handlers import router
 
 
 def get_app() -> FastAPI:
-    app = FastAPI()
-    return app
+    application = FastAPI()
+    application.include_router(router)
+    return application
+
 
 app = get_app()
